@@ -41,41 +41,26 @@ public class AnonymousDataCollection {
      */
     public AnonymousDataCollection() {
         // Get the current running path
-
         String path = AnonymousDataCollection.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 
         try {
             binaryPath = URLDecoder.decode(path, "UTF-8");
             filePath = StringUtil.trimRight(binaryPath, '/');
 
-            int jarNameIndex = filePath.indexOf("/OpenSIMKit.jar");
-            if (jarNameIndex > -1) {
-                filePath = StringUtil.trimRight((filePath.substring(0, jarNameIndex)), '/');
+            int i = filePath.indexOf("/OpenSIMKit.jar");
+            if (i > -1) {
+                filePath = StringUtil.trimRight((filePath.substring(0, i)), '/');
             }
 
             filePath = filePath.concat("/" + xmlFileName);
-            settingsFileExists = checkIfFileExists();
+            
+            File file = new File(filePath);
+            
+            settingsFileExists = file.exists() ? readXMLFile() : false;
 
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(AnonymousDataCollection.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    /**
-     * Checks to see if the settings file exists
-     *
-     * @return
-     */
-    private boolean checkIfFileExists() {
-        File settingsFile = new File(filePath);
-
-        // File exists ?
-        if (settingsFile.exists()) {
-            // Can we parse the XML for desired values ?
-            return readXMLFile();
-        }
-
-        return false;
     }
 
     /**
@@ -85,28 +70,23 @@ public class AnonymousDataCollection {
      */
     private boolean readXMLFile() {
         try {
-            File fXmlFile = new File(filePath);
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(fXmlFile);
-
+            File xmlFile = new File(filePath);
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            Document doc= factory.newDocumentBuilder().parse(xmlFile);
+            
             doc.getDocumentElement().normalize();
 
-            NodeList useList = doc.getElementsByTagName(this.COLLECT_ABOUT_USE);
-            NodeList turnOnList = doc.getElementsByTagName(this.COLLECT_TURNED_ON);
-
-            String useListValue = useList.item(0).getTextContent();
-            String turnOnValue = turnOnList.item(0).getTextContent();
-
-            collectAboutUseEnabled = Boolean.parseBoolean(useListValue);
-            collectTurnedOnEnabled = Boolean.parseBoolean(turnOnValue);
+            NodeList n;
+            n = doc.getElementsByTagName(this.COLLECT_ABOUT_USE);
+            collectAboutUseEnabled = Boolean.parseBoolean(n.item(0).getTextContent());
+            
+            n = doc.getElementsByTagName(this.COLLECT_TURNED_ON);
+            collectTurnedOnEnabled = Boolean.parseBoolean(n.item(0).getTextContent());
 
         } catch (Exception ex) {
             Logger.getLogger(AnonymousDataCollection.class.getName()).log(Level.SEVERE, null, ex);
-
             return false;
         }
-
         return true;
     }
 
@@ -119,43 +99,29 @@ public class AnonymousDataCollection {
      */
     public boolean saveXMLSettings(boolean collectAboutUse, boolean collectTurnedOn) {
         try {
-            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            Document doc = factory.newDocumentBuilder().newDocument();
 
             // root elements
-
-            Document doc = docBuilder.newDocument();
-            Element rootElement = doc.createElement("settings");
-            doc.appendChild(rootElement);
-
-            // Settings elements
+            Element child;
+            Element root = doc.createElement("settings");
+            doc.appendChild(root);
+            
+            String s;
 
             // Collect about use
-
-            Element aboutUse = doc.createElement(this.COLLECT_ABOUT_USE);
-
-            if (collectAboutUse) {
-                aboutUse.appendChild(doc.createTextNode("true"));
-            } else {
-                aboutUse.appendChild(doc.createTextNode("false"));
-            }
-
-            rootElement.appendChild(aboutUse);
+            s = collectAboutUse ? "true" : "false";
+            child = doc.createElement(this.COLLECT_ABOUT_USE);
+            child.appendChild(doc.createTextNode(s));
+            root.appendChild(child);
 
             // Collect if turned on
-
-            Element turnedOn = doc.createElement(this.COLLECT_TURNED_ON);
-
-            if (collectTurnedOn) {
-                turnedOn.appendChild(doc.createTextNode("true"));
-            } else {
-                turnedOn.appendChild(doc.createTextNode("false"));
-            }
-
-            rootElement.appendChild(turnedOn);
+            s = collectTurnedOn ? "true" : "false";
+            child = doc.createElement(this.COLLECT_TURNED_ON);
+            child.appendChild(doc.createTextNode(s));
+            root.appendChild(child);
 
             // write the content into xml file
-
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
@@ -168,14 +134,12 @@ public class AnonymousDataCollection {
             transformer.transform(source, result);
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(AnonymousDataCollection.class.getName()).log(Level.SEVERE, null, ex);
-
             return false;
+            
         } catch (TransformerException ex) {
             Logger.getLogger(AnonymousDataCollection.class.getName()).log(Level.SEVERE, null, ex);
-
             return false;
         }
-
         return true;
     }
 

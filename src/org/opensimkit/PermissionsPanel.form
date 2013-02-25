@@ -5,6 +5,7 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
+    <Property name="opaque" type="boolean" value="false"/>
   </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -21,11 +22,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jPanelPermissionsBottom" max="32767" attributes="0"/>
-                  <Component id="jPanelPermissionsTop" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanelPermissionsBottom" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jPanelPermissionsTop" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -38,7 +39,7 @@
               <Component id="jPanelPermissionsTop" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelPermissionsBottom" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -49,13 +50,14 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jLabelLiveEditing" pref="557" max="32767" attributes="0"/>
+                  <Component id="jLabelLiveEditing" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -87,29 +89,33 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="opaque" type="boolean" value="false"/>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace pref="45" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jLabelRecordInfo" pref="524" max="32767" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabelCollectAnonymous" pref="372" max="32767" attributes="0"/>
-                              <Component id="jLabelCollectUsage" pref="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="checkUsage" alignment="1" min="-2" pref="611" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jLabelRecordInfo" min="-2" pref="524" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jToggleButtonUsage" min="-2" max="-2" attributes="0"/>
-                              <Component id="jToggleButtonTurnedOn" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonContinue" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="384" max="-2" attributes="0"/>
+                                      <Component id="jButtonContinue" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="checkRegister" min="-2" pref="611" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -118,18 +124,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabelRecordInfo" min="-2" pref="51" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelCollectAnonymous" min="-2" max="-2" attributes="0"/>
-                      <Component id="jToggleButtonUsage" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelCollectUsage" min="-2" max="-2" attributes="0"/>
-                      <Component id="jToggleButtonTurnedOn" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="checkUsage" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="checkRegister" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="jButtonContinue" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -143,50 +144,6 @@
             <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;width:100%&quot;&gt;&lt;center&gt;&lt;p&gt;Recording how often and where SIMKit is used is important in ensuring that this software remains free for all to use&lt;/p&gt;&lt;/center&gt;&lt;/div&gt;&lt;/html&gt;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelCollectAnonymous">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Grande" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;width:100%&quot;&gt;&lt;p&gt;Allow SIMKit to collect anonymous data about the way you use this app (not including the messages you write)&lt;/p&gt;&lt;/div&gt;&lt;/html&gt;"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabelCollectUsage">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Lucida Grande" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;width:100%&quot;&gt;&lt;p&gt;Allow SIMKit to register that this app was turned on (collecting this very basic usage data helps us keep SIMKit free, please keep this in mind before unchecking this option)&lt;/p&gt;&lt;/div&gt;&lt;/html&gt;"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButtonUsage">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/org/opensimkit/resources/YesNoNo.png"/>
-            </Property>
-            <Property name="borderPainted" type="boolean" value="false"/>
-            <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/org/opensimkit/resources/YesNoYes.png"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jToggleButtonUsageItemStateChanged"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButtonTurnedOn">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/org/opensimkit/resources/YesNoNo.png"/>
-            </Property>
-            <Property name="borderPainted" type="boolean" value="false"/>
-            <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/org/opensimkit/resources/YesNoYes.png"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jToggleButtonTurnedOnItemStateChanged"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="jButtonContinue">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -196,6 +153,34 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonContinueActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="checkUsage">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;width:100%&quot;&gt;&lt;p&gt;Allow SIMKit to collect anonymous data about the way you use this app (not including the messages you write)&lt;/p&gt;&lt;/div&gt;&lt;/html&gt;"/>
+            <Property name="horizontalTextPosition" type="int" value="10"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/org/opensimkit/resources/YesNoNo.png"/>
+            </Property>
+            <Property name="iconTextGap" type="int" value="15"/>
+            <Property name="name" type="java.lang.String" value="checkAllowUsage" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkUsageItemStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="checkRegister">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&quot;width:100%&quot;&gt;&lt;p&gt;Allow SIMKit to register that this app was turned on (collecting this very basic usage data helps us keep SIMKit free, please keep this in mind before unchecking this option)&lt;/p&gt;&lt;/div&gt;&lt;/html&gt;"/>
+            <Property name="horizontalTextPosition" type="int" value="10"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/org/opensimkit/resources/YesNoNo.png"/>
+            </Property>
+            <Property name="iconTextGap" type="int" value="15"/>
+            <Property name="name" type="java.lang.String" value="checkAllowReg" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="checkRegisterItemStateChanged"/>
           </Events>
         </Component>
       </SubComponents>

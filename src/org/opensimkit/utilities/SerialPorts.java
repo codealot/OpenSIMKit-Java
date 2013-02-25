@@ -12,6 +12,7 @@ import purejavacomm.CommPortIdentifier;
 import purejavacomm.PortInUseException;
 import purejavacomm.SerialPort;
 import purejavacomm.UnsupportedCommOperationException;
+import purejavacomm.SerialPortEventListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,7 +25,6 @@ import java.util.TooManyListenersException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.opensimkit.OpenSIMKit;
-import purejavacomm.SerialPortEventListener;
 
 public class SerialPorts {
 
@@ -97,79 +97,59 @@ public class SerialPorts {
      */
     public boolean setParameters(long speed, String dataBits, String stopBits, String parity) {
         try {
-            int speedValue;
-            int dataBitValue;
-            int stopBitValue;
-            int parityValue;
-
+            int speed_;
+            int dataBits_;
+            int stopBits_;
+            int parity_;
 
             // Baud rate
-
-            if (speed == 75) {
-                speedValue = 75;
-            } else if (speed == 110) {
-                speedValue = 110;
-            } else if (speed == 300) {
-                speedValue = 300;
-            } else if (speed == 1200) {
-                speedValue = 1200;
-            } else if (speed == 4800) {
-                speedValue = 4800;
-            } else if (speed == 19200) {
-                speedValue = 19200;
-            } else if (speed == 38400) {
-                speedValue = 38400;
-            } else if (speed == 57600) {
-                speedValue = 57600;
-            } else if (speed == 115200) {
-                speedValue = 115200;
+            if (speed == 75 || speed == 110 || speed == 300 || 
+                    speed == 1200 || speed == 4800 || speed == 19200 || 
+                    speed == 38400 ||speed == 57600 || speed == 115200) {
+                speed_ = (int)speed;
             } else {
-                speedValue = 9600;
+                speed_ = 9600;
             }
 
             // Data bits
-
             if (dataBits.equals("5")) {
-                dataBitValue = SerialPort.DATABITS_5;
+                dataBits_ = SerialPort.DATABITS_5;
             } else if (dataBits.equals("6")) {
-                dataBitValue = SerialPort.DATABITS_6;
+                dataBits_ = SerialPort.DATABITS_6;
             } else if (dataBits.equals("7")) {
-                dataBitValue = SerialPort.DATABITS_7;
+                dataBits_ = SerialPort.DATABITS_7;
             } else {
-                dataBitValue = SerialPort.DATABITS_8;
+                dataBits_ = SerialPort.DATABITS_8;
             }
 
             // Stop bits
-
             if (stopBits.equals("1.5")) {
-                stopBitValue = SerialPort.STOPBITS_1_5;
+                stopBits_ = SerialPort.STOPBITS_1_5;
             } else if (stopBits.equals("2")) {
-                stopBitValue = SerialPort.STOPBITS_2;
+                stopBits_ = SerialPort.STOPBITS_2;
             } else {
-                stopBitValue = SerialPort.STOPBITS_1;
+                stopBits_ = SerialPort.STOPBITS_1;
             }
 
             // Parity
-
             if (parity.equals("Mark")) {
-                parityValue = SerialPort.PARITY_MARK;
+                parity_ = SerialPort.PARITY_MARK;
             } else if (parity.equals("Odd")) {
-                parityValue = SerialPort.PARITY_ODD;
+                parity_ = SerialPort.PARITY_ODD;
             } else if (parity.equals("Even")) {
-                parityValue = SerialPort.PARITY_EVEN;
+                parity_ = SerialPort.PARITY_EVEN;
             } else if (parity.equals("Space")) {
-                parityValue = SerialPort.PARITY_SPACE;
+                parity_ = SerialPort.PARITY_SPACE;
             } else {
-                parityValue = SerialPort.PARITY_NONE;
+                parity_ = SerialPort.PARITY_NONE;
             }
+            
+            serialPort.setSerialPortParams(speed_, dataBits_, stopBits_, parity_);
 
-            serialPort.setSerialPortParams(speedValue, dataBitValue, stopBitValue, parityValue);
-        } catch (UnsupportedCommOperationException ex) {
-            Logger.getLogger(SerialPorts.class.getName()).log(Level.SEVERE, null, ex);
-
+        } catch (UnsupportedCommOperationException e) {
+            Logger.getLogger(SerialPorts.class.getName()).log(Level.SEVERE, null, e);
             return false;
         }
-
         return true;
     }
 
@@ -248,11 +228,10 @@ public class SerialPorts {
             pattern = "tty.usb";
         } else if (osUtilities.isUnix()) {
             pattern = "ttyUSB";
-        } else if (osUtilities.isSolaris()) {
+        } else { //if (osUtilities.isSolaris()) { // for now lets just handle what we know
             return false;
         }
 
-        //int currentPortIndex = 0;
         for (int port = 0; port < serialPortList.size(); port++) {
             // Valid candidate to connect to ?
             if (serialPortList.get(port).contains(pattern)) {

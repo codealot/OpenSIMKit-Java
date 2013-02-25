@@ -61,15 +61,15 @@ public class PermissionsPanel extends javax.swing.JPanel {
         jLabelLiveEditing = new javax.swing.JLabel();
         jPanelPermissionsBottom = new javax.swing.JPanel();
         jLabelRecordInfo = new javax.swing.JLabel();
-        jLabelCollectAnonymous = new javax.swing.JLabel();
-        jLabelCollectUsage = new javax.swing.JLabel();
-        jToggleButtonUsage = new javax.swing.JToggleButton();
-        jToggleButtonTurnedOn = new javax.swing.JToggleButton();
         jButtonContinue = new javax.swing.JButton();
+        checkUsage = new javax.swing.JCheckBox();
+        checkRegister = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setOpaque(false);
 
         jPanelPermissionsTop.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelPermissionsTop.setOpaque(false);
 
         jLabelLiveEditing.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabelLiveEditing.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -80,7 +80,7 @@ public class PermissionsPanel extends javax.swing.JPanel {
         jPanelPermissionsTopLayout.setHorizontalGroup(
             jPanelPermissionsTopLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanelPermissionsTopLayout.createSequentialGroup()
-                .add(jLabelLiveEditing, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
+                .add(jLabelLiveEditing, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelPermissionsTopLayout.setVerticalGroup(
@@ -92,33 +92,10 @@ public class PermissionsPanel extends javax.swing.JPanel {
         );
 
         jPanelPermissionsBottom.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelPermissionsBottom.setOpaque(false);
 
         jLabelRecordInfo.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabelRecordInfo.setText("<html><div style=\"width:100%\"><center><p>Recording how often and where SIMKit is used is important in ensuring that this software remains free for all to use</p></center></div></html>");
-
-        jLabelCollectAnonymous.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabelCollectAnonymous.setText("<html><div style=\"width:100%\"><p>Allow SIMKit to collect anonymous data about the way you use this app (not including the messages you write)</p></div></html>");
-
-        jLabelCollectUsage.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabelCollectUsage.setText("<html><div style=\"width:100%\"><p>Allow SIMKit to register that this app was turned on (collecting this very basic usage data helps us keep SIMKit free, please keep this in mind before unchecking this option)</p></div></html>");
-
-        jToggleButtonUsage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/YesNoNo.png"))); // NOI18N
-        jToggleButtonUsage.setBorderPainted(false);
-        jToggleButtonUsage.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/YesNoYes.png"))); // NOI18N
-        jToggleButtonUsage.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jToggleButtonUsageItemStateChanged(evt);
-            }
-        });
-
-        jToggleButtonTurnedOn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/YesNoNo.png"))); // NOI18N
-        jToggleButtonTurnedOn.setBorderPainted(false);
-        jToggleButtonTurnedOn.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/YesNoYes.png"))); // NOI18N
-        jToggleButtonTurnedOn.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jToggleButtonTurnedOnItemStateChanged(evt);
-            }
-        });
 
         jButtonContinue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/ContinueButton.png"))); // NOI18N
         jButtonContinue.setBorderPainted(false);
@@ -128,51 +105,71 @@ public class PermissionsPanel extends javax.swing.JPanel {
             }
         });
 
+        checkUsage.setText("<html><div style=\"width:100%\"><p>Allow SIMKit to collect anonymous data about the way you use this app (not including the messages you write)</p></div></html>");
+        checkUsage.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        checkUsage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/YesNoNo.png"))); // NOI18N
+        checkUsage.setIconTextGap(15);
+        checkUsage.setName("checkAllowUsage"); // NOI18N
+        checkUsage.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkUsageItemStateChanged(evt);
+            }
+        });
+
+        checkRegister.setText("<html><div style=\"width:100%\"><p>Allow SIMKit to register that this app was turned on (collecting this very basic usage data helps us keep SIMKit free, please keep this in mind before unchecking this option)</p></div></html>");
+        checkRegister.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        checkRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/YesNoNo.png"))); // NOI18N
+        checkRegister.setIconTextGap(15);
+        checkRegister.setName("checkAllowReg"); // NOI18N
+        checkRegister.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                checkRegisterItemStateChanged(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout jPanelPermissionsBottomLayout = new org.jdesktop.layout.GroupLayout(jPanelPermissionsBottom);
         jPanelPermissionsBottom.setLayout(jPanelPermissionsBottomLayout);
         jPanelPermissionsBottomLayout.setHorizontalGroup(
             jPanelPermissionsBottomLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanelPermissionsBottomLayout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
-                .add(jPanelPermissionsBottomLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                    .add(jLabelRecordInfo, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
-                    .add(jPanelPermissionsBottomLayout.createSequentialGroup()
-                        .add(jPanelPermissionsBottomLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(jLabelCollectAnonymous, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
-                            .add(jLabelCollectUsage, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jPanelPermissionsBottomLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jToggleButtonUsage)
-                            .add(jToggleButtonTurnedOn)
-                            .add(jButtonContinue))
-                        .addContainerGap())))
+                .add(jPanelPermissionsBottomLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(checkUsage, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 611, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jPanelPermissionsBottomLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                        .add(jPanelPermissionsBottomLayout.createSequentialGroup()
+                            .add(80, 80, 80)
+                            .add(jLabelRecordInfo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 524, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(jPanelPermissionsBottomLayout.createSequentialGroup()
+                            .add(32, 32, 32)
+                            .add(jPanelPermissionsBottomLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(jPanelPermissionsBottomLayout.createSequentialGroup()
+                                    .add(384, 384, 384)
+                                    .add(jButtonContinue))
+                                .add(checkRegister, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 611, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
+                .add(0, 60, Short.MAX_VALUE))
         );
         jPanelPermissionsBottomLayout.setVerticalGroup(
             jPanelPermissionsBottomLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanelPermissionsBottomLayout.createSequentialGroup()
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(jLabelRecordInfo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 51, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(44, 44, 44)
-                .add(jPanelPermissionsBottomLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabelCollectAnonymous, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jToggleButtonUsage))
-                .add(31, 31, 31)
-                .add(jPanelPermissionsBottomLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabelCollectUsage, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jToggleButtonTurnedOn))
+                .add(18, 18, 18)
+                .add(checkUsage, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jButtonContinue))
+                .add(checkRegister, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(39, 39, 39)
+                .add(jButtonContinue)
+                .add(88, 88, 88))
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+            .add(layout.createSequentialGroup()
                 .addContainerGap()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(jPanelPermissionsBottom, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(jPanelPermissionsTop, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelPermissionsBottom, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanelPermissionsTop, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -182,7 +179,7 @@ public class PermissionsPanel extends javax.swing.JPanel {
                 .add(jPanelPermissionsTop, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanelPermissionsBottom, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .add(56, 56, 56))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -192,43 +189,23 @@ public class PermissionsPanel extends javax.swing.JPanel {
         OpenSIMKit.mainFrame.setDisconnectedInterface();
     }//GEN-LAST:event_jButtonContinueActionPerformed
 
-    private void jToggleButtonUsageItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jToggleButtonUsageItemStateChanged
-        // TODO add your handling code here:
-        usageYes = (evt.getStateChange() == evt.SELECTED);
+    private void checkRegisterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkRegisterItemStateChanged
         
-        if(usageYes)
-        {
-            jToggleButtonUsage.setIcon(yesNoYesIcon);
-        }
-        else
-        {
-            jToggleButtonUsage.setIcon(yesNoNoIcon);
-        }
-    }//GEN-LAST:event_jToggleButtonUsageItemStateChanged
+        checkRegister.setIcon((evt.getStateChange() == evt.SELECTED) ? yesNoYesIcon : yesNoNoIcon);
+    }//GEN-LAST:event_checkRegisterItemStateChanged
 
-    private void jToggleButtonTurnedOnItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jToggleButtonTurnedOnItemStateChanged
-        // TODO add your handling code here:
+    private void checkUsageItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_checkUsageItemStateChanged
         turnedOnYes = (evt.getStateChange() == evt.SELECTED);
-        
-        if(turnedOnYes)
-        {
-            jToggleButtonTurnedOn.setIcon(yesNoYesIcon);
-        }
-        else
-        {
-            jToggleButtonTurnedOn.setIcon(yesNoNoIcon);
-        }
-    }//GEN-LAST:event_jToggleButtonTurnedOnItemStateChanged
+        checkUsage.setIcon(turnedOnYes ? yesNoYesIcon : yesNoNoIcon);
+    }//GEN-LAST:event_checkUsageItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox checkRegister;
+    private javax.swing.JCheckBox checkUsage;
     private javax.swing.JButton jButtonContinue;
-    private javax.swing.JLabel jLabelCollectAnonymous;
-    private javax.swing.JLabel jLabelCollectUsage;
     private javax.swing.JLabel jLabelLiveEditing;
     private javax.swing.JLabel jLabelRecordInfo;
     private javax.swing.JPanel jPanelPermissionsBottom;
     private javax.swing.JPanel jPanelPermissionsTop;
-    private javax.swing.JToggleButton jToggleButtonTurnedOn;
-    private javax.swing.JToggleButton jToggleButtonUsage;
     // End of variables declaration//GEN-END:variables
 }

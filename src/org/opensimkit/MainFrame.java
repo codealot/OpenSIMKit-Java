@@ -52,10 +52,10 @@ public final class MainFrame extends javax.swing.JFrame {
     public void setAnonymousDataCollectionInterface()
     {
         
-        jPanelBottomRight.removeAll();
+        stackPanel.removeAll();
 
-        org.jdesktop.layout.GroupLayout jPanelBottomRightLayout = new org.jdesktop.layout.GroupLayout(jPanelBottomRight);
-        jPanelBottomRight.setLayout(jPanelBottomRightLayout);
+        org.jdesktop.layout.GroupLayout jPanelBottomRightLayout = new org.jdesktop.layout.GroupLayout(stackPanel);
+        stackPanel.setLayout(jPanelBottomRightLayout);
 
         jPanelBottomRightLayout.setHorizontalGroup(
             jPanelBottomRightLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -88,10 +88,10 @@ public final class MainFrame extends javax.swing.JFrame {
         // Contruct interface
         
         
-        jPanelBottomRight.removeAll();
+        stackPanel.removeAll();
 
-        org.jdesktop.layout.GroupLayout jPanelBottomRightLayout = new org.jdesktop.layout.GroupLayout(jPanelBottomRight);
-        jPanelBottomRight.setLayout(jPanelBottomRightLayout);
+        org.jdesktop.layout.GroupLayout jPanelBottomRightLayout = new org.jdesktop.layout.GroupLayout(stackPanel);
+        stackPanel.setLayout(jPanelBottomRightLayout);
 
         jPanelBottomRightLayout.setHorizontalGroup(
             jPanelBottomRightLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -135,10 +135,10 @@ public final class MainFrame extends javax.swing.JFrame {
         
         // Construct interface
             
-        jPanelBottomRight.removeAll();
+        stackPanel.removeAll();
 
-        org.jdesktop.layout.GroupLayout jPanelBottomRightLayout = new org.jdesktop.layout.GroupLayout(jPanelBottomRight);
-        jPanelBottomRight.setLayout(jPanelBottomRightLayout);
+        org.jdesktop.layout.GroupLayout jPanelBottomRightLayout = new org.jdesktop.layout.GroupLayout(stackPanel);
+        stackPanel.setLayout(jPanelBottomRightLayout);
 
         jPanelBottomRightLayout.setHorizontalGroup(
             jPanelBottomRightLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -174,23 +174,27 @@ public final class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jButtonTwitter1 = new javax.swing.JButton();
-        jPanelTop = new javax.swing.JPanel();
-        SIMKitLogo1 = new javax.swing.JLabel();
+        headPanel = new javax.swing.JPanel();
+        btnConnectTwitter = new javax.swing.JButton();
+        btnConnectGitHub = new javax.swing.JButton();
+        btnConnectSIMKit = new javax.swing.JButton();
+        filler8 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
-        jLabelAbayimaLogo1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanelBottomLeft = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(6, 0), new java.awt.Dimension(6, 0), new java.awt.Dimension(6, 32767));
+        mainPanel = new javax.swing.JPanel();
+        sidePanel = new javax.swing.JPanel();
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 20));
         jPanel3 = new javax.swing.JPanel();
         jLabelAboutOSK = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jButtonSIMKitConnect = new javax.swing.JButton();
-        jLabelConnectWithUs = new javax.swing.JLabel();
-        jButtonGitHubConnect = new javax.swing.JButton();
-        jButtonTwitterConnect = new javax.swing.JButton();
         jSeparatorSocialMediaBottom = new javax.swing.JSeparator();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
-        jPanelBottomRight = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
+        filler7 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
+        jLabelAbayimaLogo1 = new javax.swing.JLabel();
+        filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
+        stackPanel = new javax.swing.JPanel();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
         jMenuItemSettings = new javax.swing.JMenuItem();
@@ -201,126 +205,124 @@ public final class MainFrame extends javax.swing.JFrame {
         jButtonTwitter1.setBorder(null);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(153, 171, 183));
         setPreferredSize(new java.awt.Dimension(1000, 800));
 
-        jPanelTop.setBackground(new java.awt.Color(246, 246, 246));
-        jPanelTop.setMaximumSize(new java.awt.Dimension(32767, 100));
-        jPanelTop.setMinimumSize(new java.awt.Dimension(652, 100));
-        jPanelTop.setName("JPanelNorth"); // NOI18N
-        jPanelTop.setPreferredSize(new java.awt.Dimension(570, 100));
-        jPanelTop.setLayout(new javax.swing.BoxLayout(jPanelTop, javax.swing.BoxLayout.LINE_AXIS));
+        headPanel.setBackground(new java.awt.Color(153, 171, 183));
+        headPanel.setMaximumSize(new java.awt.Dimension(32767, 100));
+        headPanel.setMinimumSize(new java.awt.Dimension(652, 100));
+        headPanel.setName("JPanelNorth"); // NOI18N
+        headPanel.setPreferredSize(new java.awt.Dimension(570, 50));
+        headPanel.setLayout(new javax.swing.BoxLayout(headPanel, javax.swing.BoxLayout.LINE_AXIS));
 
-        SIMKitLogo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        SIMKitLogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/SIMKitLogo.png"))); // NOI18N
-        SIMKitLogo1.setMaximumSize(new java.awt.Dimension(642, 100));
-        SIMKitLogo1.setMinimumSize(new java.awt.Dimension(642, 100));
-        SIMKitLogo1.setPreferredSize(new java.awt.Dimension(642, 100));
-        jPanelTop.add(SIMKitLogo1);
-        jPanelTop.add(filler1);
+        btnConnectTwitter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/TwitterConnect.png"))); // NOI18N
+        btnConnectTwitter.setBorder(null);
+        btnConnectTwitter.setMaximumSize(new java.awt.Dimension(50, 50));
+        btnConnectTwitter.setMinimumSize(new java.awt.Dimension(50, 50));
+        btnConnectTwitter.setPreferredSize(new java.awt.Dimension(50, 50));
+        btnConnectTwitter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConnectTwitterActionPerformed(evt);
+            }
+        });
+        headPanel.add(btnConnectTwitter);
 
-        jLabelAbayimaLogo1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelAbayimaLogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/AbayimaLogo.png"))); // NOI18N
-        jPanelTop.add(jLabelAbayimaLogo1);
+        btnConnectGitHub.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/GitHubConnect.png"))); // NOI18N
+        btnConnectGitHub.setBorder(null);
+        btnConnectGitHub.setMaximumSize(new java.awt.Dimension(50, 50));
+        btnConnectGitHub.setMinimumSize(new java.awt.Dimension(50, 50));
+        btnConnectGitHub.setPreferredSize(new java.awt.Dimension(50, 50));
+        btnConnectGitHub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConnectGitHubActionPerformed(evt);
+            }
+        });
+        headPanel.add(btnConnectGitHub);
 
-        getContentPane().add(jPanelTop, java.awt.BorderLayout.NORTH);
+        btnConnectSIMKit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/SIMKitConnect.png"))); // NOI18N
+        btnConnectSIMKit.setBorder(null);
+        btnConnectSIMKit.setMaximumSize(new java.awt.Dimension(50, 50));
+        btnConnectSIMKit.setMinimumSize(new java.awt.Dimension(50, 50));
+        btnConnectSIMKit.setPreferredSize(new java.awt.Dimension(50, 50));
+        btnConnectSIMKit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConnectSIMKitActionPerformed(evt);
+            }
+        });
+        headPanel.add(btnConnectSIMKit);
+        headPanel.add(filler8);
+        headPanel.add(filler1);
 
-        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+        jButton1.setText("jButton1");
+        jButton1.setMaximumSize(new java.awt.Dimension(120, 36));
+        jButton1.setMinimumSize(new java.awt.Dimension(120, 36));
+        jButton1.setPreferredSize(new java.awt.Dimension(120, 36));
+        headPanel.add(jButton1);
+        headPanel.add(filler4);
 
-        jPanelBottomLeft.setBackground(new java.awt.Color(246, 246, 246));
-        jPanelBottomLeft.setMaximumSize(new java.awt.Dimension(250, 32767));
-        jPanelBottomLeft.setMinimumSize(new java.awt.Dimension(250, 0));
-        jPanelBottomLeft.setPreferredSize(new java.awt.Dimension(250, 620));
-        jPanelBottomLeft.setLayout(new javax.swing.BoxLayout(jPanelBottomLeft, javax.swing.BoxLayout.PAGE_AXIS));
-        jPanelBottomLeft.add(filler3);
+        getContentPane().add(headPanel, java.awt.BorderLayout.SOUTH);
 
+        mainPanel.setBackground(new java.awt.Color(153, 171, 183));
+        mainPanel.setLayout(new javax.swing.BoxLayout(mainPanel, javax.swing.BoxLayout.LINE_AXIS));
+
+        sidePanel.setBackground(new java.awt.Color(153, 171, 183));
+        sidePanel.setMaximumSize(new java.awt.Dimension(150, 32767));
+        sidePanel.setMinimumSize(new java.awt.Dimension(150, 0));
+        sidePanel.setPreferredSize(new java.awt.Dimension(150, 620));
+        sidePanel.setLayout(new javax.swing.BoxLayout(sidePanel, javax.swing.BoxLayout.PAGE_AXIS));
+
+        filler3.setBackground(new java.awt.Color(153, 171, 183));
+        sidePanel.add(filler3);
+
+        jPanel3.setBackground(new java.awt.Color(153, 171, 183));
+        jPanel3.setOpaque(false);
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
 
         jLabelAboutOSK.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabelAboutOSK.setText("<html><div style=\"width:100%;\">SIMKIT is a free and open source software designed to turn the world's feature phones into low cost e-readers</div></html>");
         jPanel3.add(jLabelAboutOSK);
 
-        jPanelBottomLeft.add(jPanel3);
+        sidePanel.add(jPanel3);
 
-        jButtonSIMKitConnect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/SIMKitConnect.png"))); // NOI18N
-        jButtonSIMKitConnect.setBorder(null);
-        jButtonSIMKitConnect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSIMKitConnectActionPerformed(evt);
-            }
-        });
+        jSeparatorSocialMediaBottom.setBackground(new java.awt.Color(153, 171, 183));
+        sidePanel.add(jSeparatorSocialMediaBottom);
+        sidePanel.add(filler2);
 
-        jLabelConnectWithUs.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
-        jLabelConnectWithUs.setText("Connect with the OpenSIMKit Project");
+        jSeparator1.setMaximumSize(new java.awt.Dimension(32767, 10));
+        jSeparator1.setMinimumSize(new java.awt.Dimension(4, 10));
+        jSeparator1.setPreferredSize(new java.awt.Dimension(150, 10));
+        sidePanel.add(jSeparator1);
 
-        jButtonGitHubConnect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/GitHubConnect.png"))); // NOI18N
-        jButtonGitHubConnect.setBorder(null);
-        jButtonGitHubConnect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGitHubConnectActionPerformed(evt);
-            }
-        });
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel1.add(filler7);
 
-        jButtonTwitterConnect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/TwitterConnect.png"))); // NOI18N
-        jButtonTwitterConnect.setBorder(null);
-        jButtonTwitterConnect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonTwitterConnectActionPerformed(evt);
-            }
-        });
+        jLabelAbayimaLogo1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelAbayimaLogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/opensimkit/resources/AbayimaLogo.png"))); // NOI18N
+        jPanel1.add(jLabelAbayimaLogo1);
+        jPanel1.add(filler6);
 
-        org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabelConnectWithUs)
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .add(jButtonSIMKitConnect)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jButtonGitHubConnect)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jButtonTwitterConnect)))
-                .addContainerGap())
+        sidePanel.add(jPanel1);
+
+        mainPanel.add(sidePanel);
+
+        stackPanel.setBackground(new java.awt.Color(223, 232, 239));
+        stackPanel.setBorder(null);
+
+        org.jdesktop.layout.GroupLayout stackPanelLayout = new org.jdesktop.layout.GroupLayout(stackPanel);
+        stackPanel.setLayout(stackPanelLayout);
+        stackPanelLayout.setHorizontalGroup(
+            stackPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 509, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jLabelConnectWithUs)
-                .add(8, 8, 8)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jButtonSIMKitConnect)
-                    .add(jButtonGitHubConnect)
-                    .add(jButtonTwitterConnect))
-                .addContainerGap())
+        stackPanelLayout.setVerticalGroup(
+            stackPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 513, Short.MAX_VALUE)
         );
 
-        jPanelBottomLeft.add(jPanel2);
-        jPanelBottomLeft.add(jSeparatorSocialMediaBottom);
-        jPanelBottomLeft.add(filler2);
+        mainPanel.add(stackPanel);
 
-        jPanel1.add(jPanelBottomLeft);
-
-        jPanelBottomRight.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelBottomRight.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        org.jdesktop.layout.GroupLayout jPanelBottomRightLayout = new org.jdesktop.layout.GroupLayout(jPanelBottomRight);
-        jPanelBottomRight.setLayout(jPanelBottomRightLayout);
-        jPanelBottomRightLayout.setHorizontalGroup(
-            jPanelBottomRightLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 400, Short.MAX_VALUE)
-        );
-        jPanelBottomRightLayout.setVerticalGroup(
-            jPanelBottomRightLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 177, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanelBottomRight);
-
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
         jMenuFile.setText("File");
 
@@ -345,7 +347,7 @@ public final class MainFrame extends javax.swing.JFrame {
         settingsFrame.setVisible(true);
     }//GEN-LAST:event_jMenuItemSettingsActionPerformed
 
-    private void jButtonSIMKitConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSIMKitConnectActionPerformed
+    private void btnConnectSIMKitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectSIMKitActionPerformed
         // TODO add your handling code here:
         try {            
             URI uri = new URI(this.openSIMKitUrl);
@@ -356,9 +358,9 @@ public final class MainFrame extends javax.swing.JFrame {
         } catch (URISyntaxException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonSIMKitConnectActionPerformed
+    }//GEN-LAST:event_btnConnectSIMKitActionPerformed
 
-    private void jButtonGitHubConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGitHubConnectActionPerformed
+    private void btnConnectGitHubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectGitHubActionPerformed
         // TODO add your handling code here:
         try {            
             URI uri = new URI(this.gitHubUrl);
@@ -369,9 +371,9 @@ public final class MainFrame extends javax.swing.JFrame {
         } catch (URISyntaxException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonGitHubConnectActionPerformed
+    }//GEN-LAST:event_btnConnectGitHubActionPerformed
 
-    private void jButtonTwitterConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTwitterConnectActionPerformed
+    private void btnConnectTwitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConnectTwitterActionPerformed
         // TODO add your handling code here:
         try {            
             URI uri = new URI(this.twitterUrl);
@@ -382,29 +384,33 @@ public final class MainFrame extends javax.swing.JFrame {
         } catch (URISyntaxException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButtonTwitterConnectActionPerformed
+    }//GEN-LAST:event_btnConnectTwitterActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel SIMKitLogo1;
+    private javax.swing.JButton btnConnectGitHub;
+    private javax.swing.JButton btnConnectSIMKit;
+    private javax.swing.JButton btnConnectTwitter;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
-    private javax.swing.JButton jButtonGitHubConnect;
-    private javax.swing.JButton jButtonSIMKitConnect;
+    private javax.swing.Box.Filler filler4;
+    private javax.swing.Box.Filler filler6;
+    private javax.swing.Box.Filler filler7;
+    private javax.swing.Box.Filler filler8;
+    private javax.swing.JPanel headPanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonTwitter1;
-    private javax.swing.JButton jButtonTwitterConnect;
     private javax.swing.JLabel jLabelAbayimaLogo1;
     private javax.swing.JLabel jLabelAboutOSK;
-    private javax.swing.JLabel jLabelConnectWithUs;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuFile;
     private javax.swing.JMenuItem jMenuItemSettings;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanelBottomLeft;
-    private javax.swing.JPanel jPanelBottomRight;
-    private javax.swing.JPanel jPanelTop;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparatorSocialMediaBottom;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel sidePanel;
+    private javax.swing.JPanel stackPanel;
     // End of variables declaration//GEN-END:variables
 }
