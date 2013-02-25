@@ -315,7 +315,7 @@ public final class MainFrame extends javax.swing.JFrame {
         );
         jPanelBottomRightLayout.setVerticalGroup(
             jPanelBottomRightLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 176, Short.MAX_VALUE)
+            .add(0, 177, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanelBottomRight);

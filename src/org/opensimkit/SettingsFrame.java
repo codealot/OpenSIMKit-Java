@@ -17,32 +17,26 @@ public class SettingsFrame extends javax.swing.JFrame {
     /**
      * Creates new form SettingsFrame
      */
-    
     SerialPorts serialPorts;
     ArrayList<String> serialPortList;
-    
+
     public SettingsFrame() {
         initComponents();
-        
-        if(OpenSIMKit.serialPorts != null)
-        {
+
+        if (OpenSIMKit.serialPorts != null) {
             serialPorts = OpenSIMKit.serialPorts;
-            
-            if(serialPorts.isConnected())
-            {
+
+            if (serialPorts.isConnected()) {
                 jButtonConnect.setText("Disconnect");
             }
-        }
-        else
-        {
+        } else {
             serialPorts = new SerialPorts();
         }
-        
+
         serialPortList = serialPorts.getSerialPortList();
         int numPorts = serialPortList.size();
-        
-        for(int portLoop = 0; portLoop < numPorts; portLoop ++)
-        {
+
+        for (int portLoop = 0; portLoop < numPorts; portLoop++) {
             jComboBoxPorts.addItem(serialPortList.get(portLoop));
         }
     }
@@ -220,38 +214,34 @@ public class SettingsFrame extends javax.swing.JFrame {
 
     private void jButtonConnectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConnectActionPerformed
         // TODO add your handling code here:
-        
-        if(!serialPorts.isConnected()) {
+
+        if (!serialPorts.isConnected()) {
             int selectedOption = jComboBoxPorts.getSelectedIndex();
-        
-            if(!serialPorts.connectPort(selectedOption)) 
-            {
+
+            if (!serialPorts.connect(selectedOption)) {
                 JOptionPane.showMessageDialog(this, "Unable to connect to the port");
-            }
-            else {
-                serialPorts.setParameters(Long.parseLong(jComboBoxBaudRate.getSelectedItem().toString()), 
-                        jComboBoxDataBits.getSelectedItem().toString(), 
+            } else {
+                serialPorts.setParameters(Long.parseLong(jComboBoxBaudRate.getSelectedItem().toString()),
+                        jComboBoxDataBits.getSelectedItem().toString(),
                         jComboBoxStopBits.getSelectedItem().toString(),
                         jComboBoxParity.getSelectedItem().toString());
-                
+
                 JOptionPane.showMessageDialog(this, "Connected to the port");
                 jButtonConnect.setText("Disconnect");
                 OpenSIMKit.serialPorts = serialPorts;
                 OpenSIMKit.mainFrame.setConnectedInterface();
-                
+
                 this.dispose();
             }
-        }
-        else {
+        } else {
             OpenSIMKit.serialPorts = null;
-            serialPorts.disconnectPort();
+            serialPorts.disconnect();
             OpenSIMKit.mainFrame.setDisconnectedInterface();
-            
+
             this.dispose();
         }
-        
-    }//GEN-LAST:event_jButtonConnectActionPerformed
 
+    }//GEN-LAST:event_jButtonConnectActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConnect;
     private javax.swing.JComboBox jComboBoxBaudRate;

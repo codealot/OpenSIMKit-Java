@@ -11,36 +11,32 @@ import java.util.ArrayList;
  * @author ahmedmaawy
  */
 public class Messages {
+
     ArrayList<String> messages = new ArrayList<String>();
-    
+
     /**
      * Constructor
-     * 
-     * @param textToProcess 
+     *
+     * @param textToProcess
      */
-    
-    public Messages(String textToProcess)
-    {
-        String [] splitString = textToProcess.split("\n");
-        int numElements = splitString.length;
-        
-        for(int elementLoop = 0; elementLoop < numElements; elementLoop ++)
-        {
-            if(!splitString[elementLoop].contains("+CMGL") 
-                    && !splitString[elementLoop].trim().equals("OK")
-                    && !splitString[elementLoop].trim().equals(""))
-            {
-                messages.add(splitString[elementLoop].trim());
+    public Messages(String textToProcess) {
+        String[] splitString = textToProcess.split("\n");
+        int elementCount = splitString.length;
+
+        for (int i = 0; i < elementCount; i++) {
+            if (!splitString[i].contains("+CMGL")
+                    && !splitString[i].trim().equals("OK")
+                    && !splitString[i].trim().equals("")) {
+                messages.add(splitString[i].trim());
             }
         }
     }
-    
+
     /**
      * Get messages
-     * 
-     * @return 
+     *
+     * @return
      */
-
     public ArrayList<String> getMessages() {
         return messages;
     }

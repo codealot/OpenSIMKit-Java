@@ -20,48 +20,46 @@ import java.util.logging.Logger;
 public class SerialPortListener implements SerialPortEventListener {
 
     SerialPort serialPort;
-    
+
     @Override
     public void serialEvent(SerialPortEvent spe) {
         SerialPort port = (SerialPort) spe.getSource();
-        BufferedReader bufferedReader;
-        
+        BufferedReader br;
+
         try {
-            bufferedReader = new BufferedReader(new InputStreamReader(port.getInputStream()));
+            br = new BufferedReader(new InputStreamReader(port.getInputStream()));
         } catch (IOException ex) {
             Logger.getLogger(SerialPortListener.class.getName()).log(Level.SEVERE, null, ex);
-            
+
             return;
         }
-        
-        switch(spe.getEventType()) {
+
+        switch (spe.getEventType()) {
             case SerialPortEvent.OUTPUT_BUFFER_EMPTY:
                 break;
 
             case SerialPortEvent.DATA_AVAILABLE:
                 String output = "";
                 String readLine = "";
-                
+
                 try {
                     boolean stop = false;
-                    
-                    while(!stop) {
-                        readLine = bufferedReader.readLine();
+
+                    while (!stop) {
+                        readLine = br.readLine();
                         output = output.concat(readLine + "\r\n");
-                        
-                        if(readLine.trim().equals("OK") || readLine.trim().equals("ERROR") || readLine.trim().equals(">"))
+
+                        if (readLine.trim().equals("OK") || readLine.trim().equals("ERROR") || readLine.trim().equals(">")) {
                             stop = true;
+                        }
                     }
-                    
                     SerialPorts.setSerialPortReturnValue(output);
+                    br.close();
                     
-                    bufferedReader.close();
                 } catch (IOException ex) {
                     Logger.getLogger(SerialPortListener.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
                 break;
         }
     }
-    
 }
